@@ -19,6 +19,7 @@ def load_multilingual_eval_dataset(
     keep_columns: List[str] = ["text_chosen", "text_rejected", "id"],
     max_turns: int = None,
     split: str = "test",
+    source_column: str = "source",
 ) -> Tuple["Dataset", List[str]]:
     """Based on: https://github.com/allenai/reward-bench/blob/main/rewardbench/utils.py#L273"""
     raw_dataset = load_dataset(dataset_name, lang_code, split=split)
@@ -88,7 +89,7 @@ def load_multilingual_eval_dataset(
         dataset = dataset.filter(filter_long_turns)
 
     # take column subset from dataset
-    subsets = dataset["subset"]
+    subsets = dataset[source_column]
 
     # remove columns if set and not custom_dialogue_formatting
     all_cols = dataset.column_names
