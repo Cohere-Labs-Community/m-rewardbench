@@ -18,9 +18,10 @@ def load_multilingual_eval_dataset(
     logger: Optional["logging.Logger"] = None,
     keep_columns: List[str] = ["text_chosen", "text_rejected", "id"],
     max_turns: int = None,
+    split: str = "test",
 ) -> Tuple["Dataset", List[str]]:
     """Based on: https://github.com/allenai/reward-bench/blob/main/rewardbench/utils.py#L273"""
-    raw_dataset = load_dataset(dataset_name, lang_code, split="filtered")
+    raw_dataset = load_dataset(dataset_name, lang_code, split=split)
 
     # Apply chat template
     if not custom_dialogue_formatting:

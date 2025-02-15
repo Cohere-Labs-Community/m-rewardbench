@@ -164,6 +164,7 @@ def main():
         logger=logger,
         keep_columns=["text_chosen", "text_rejected", "id"],
         max_turns=4,
+        split=args.split,
     )
 
     # copy id for saving, then remove
