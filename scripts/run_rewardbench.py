@@ -62,7 +62,8 @@ def main():
     # fmt: off
     parser.add_argument("--dataset_name", type=str, default="aya-rm-multilingual/multilingual-reward-bench", help="the dataset to evaluate on")
     parser.add_argument("--lang_code", type=str, default=None, help="the language code to use")
-    parser.add_argument("--split", type=str, default="filtered", help="the split to evaluate on")
+    parser.add_argument("--split", type=str, default="test", help="the split to evaluate on")
+    parser.add_argument("--source_column", type=str, default="source", help="the column the describes the subset a sample belongs to")
     parser.add_argument("--model", type=str, required=True, help="the model to evaluate")
     parser.add_argument("--ref_model", type=str, default=None, help="the reference model to compare against")
     parser.add_argument("--tokenizer", type=str, default=None, help="the tokenizer to use (defaults to model)")
@@ -191,7 +192,9 @@ def main():
             custom_dialogue_formatting=False,
             tokenizer=tokenizer,
             logger=logger,
+            split=args.split,
             keep_columns=["text_chosen", "text_rejected", "prompt"],
+            source_column=args.source_column,
         )
 
     if args.debug:

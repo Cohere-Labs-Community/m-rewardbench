@@ -66,6 +66,7 @@ def get_args():
     parser.add_argument("--dataset_name", type=str, required=True, help="name of dataset to test on")
     parser.add_argument("--lang_code", type=str, default=None, help="the language code to use")
     parser.add_argument("--split", default="test", type=str, required=True, help="dataset split to evaluate")
+    parser.add_argument("--source_column", type=str, default="source", help="the column the describes the subset a sample belongs to")
     parser.add_argument("--model", type=str, nargs="+", required=True, help="name of model to use")
     parser.add_argument("--output_dir", type=str, required=True, help="directory to save the results")
     parser.add_argument("--chat_template", type=str, default=None, help="fastchat chat template (optional)")
@@ -164,6 +165,8 @@ def main():
         logger=logger,
         keep_columns=["text_chosen", "text_rejected", "id"],
         max_turns=4,
+        split=args.split,
+        source_column=args.source_column,
     )
 
     # copy id for saving, then remove
