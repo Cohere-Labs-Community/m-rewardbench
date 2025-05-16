@@ -19,6 +19,7 @@ This project was part of [Cohere for AI's Expedition Aya 2024](https://sites.goo
 
 ## News
 
+- [2025-05-15] Our work has been accepted and will be published at **ACL 2025 (Main)**! We hope to see you in Vienna 🇦🇹
 - [2024-10-28] We've published our research, M-RewardBench: Evaluating Reward Models in Multilingual Settings, as an arXiv [**preprint!**](https://arxiv.org/abs/2410.15522)
 - [2024-10-20] Added a **Translation** sub-category to evaluate RM preferences on translation tasks (de<->en, zh<->en). We also improved the translation quality of the benchmark by using the Google Translate API and performing manual filtering and verification.
 - [2024-08-28] We won **Silver Prize** in Expedition Aya 2024! We're also releasing the v1 of the multilingual RewardBench on [HuggingFace](https://huggingface.co/datasets/aya-rm-multilingual/multilingual-reward-bench).
